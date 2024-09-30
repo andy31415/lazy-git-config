@@ -13,11 +13,12 @@ return {
     init = function()
       local lspconfig = require("lspconfig")
 
-      lspconfig.bash.setup({
-        opts = {
-          autoformat = false,
-        },
-      })
+      -- lspconfig.bash.setup({
+      --   opts = {
+      --     autoformat = false,
+      --   },
+      -- })
+
       lspconfig.clangd.setup({
         opts = {
           autoformat = false,
