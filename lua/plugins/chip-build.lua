@@ -9,7 +9,6 @@ vim.api.nvim_create_user_command("OverseerRestartLast", function()
 end, {})
 
 return {
-  { "stevearc/overseer.nvim", opts = {} },
   {
     "andy31415/chip-build.nvim",
     config = function()
@@ -17,5 +16,8 @@ return {
         -- development = true
       })
     end,
+    dependencies = {
+      { "stevearc/overseer.nvim", opts = {} },
+    },
   },
 }

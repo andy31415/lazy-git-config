@@ -8,8 +8,21 @@ return {
     -- opts will be merged with the parent spec
     opts = { use_diagnostic_signs = true },
   },
-  -- Monokai still looks better to me
-  -- {
-  --   "catppuccin/vim",
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    init = function()
+      local lspconfig = require("lspconfig")
+
+      lspconfig.bash.setup({
+        opts = {
+          autoformat = false,
+        },
+      })
+      lspconfig.clangd.setup({
+        opts = {
+          autoformat = false,
+        },
+      })
+    end,
+  },
 }
