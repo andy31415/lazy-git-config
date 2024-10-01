@@ -26,4 +26,13 @@ return {
       })
     end,
   },
+  { "godlygeek/tabular" },
+  {
+    "ntpeters/vim-better-whitespace",
+    init = function()
+      -- Dashboard has lots of whitespace for some reason. Do not mess it up and make it red
+      vim.g.better_whitespace_filetypes_blacklist = { "dashboard" }
+    end,
+  },
+  { "luochen1990/rainbow" },
 }
