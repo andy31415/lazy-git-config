@@ -34,5 +34,4 @@ return {
       vim.g.better_whitespace_filetypes_blacklist = { "dashboard" }
     end,
   },
-  { "luochen1990/rainbow" },
 }
