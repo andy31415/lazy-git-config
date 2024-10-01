@@ -34,4 +34,19 @@ return {
       vim.g.better_whitespace_filetypes_blacklist = { "dashboard" }
     end,
   },
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      local actions = require("fzf-lua.actions")
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({
+        keymap = {
+          fzf = {
+            ["ctrl-q"] = "select-all+accept",
+          },
+        },
+      })
+    end,
+  },
 }

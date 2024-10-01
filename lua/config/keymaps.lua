@@ -13,3 +13,6 @@ map("v", "<C-k>", ":m '<lt>-2<CR>gv-gv")
 
 map("n", "<Leader>or", "<CMD>OverseerRestartLast<CR>")
 map("n", "<Leader>of", "<CMD>ClangdSwitchSourceHeader<CR>")
+
+map("n", "<Leader>*", "<CMD>FzfLua grep_cword<CR>")
+map("n", "<Leader>/", "<CMD>FzfLua live_grep_glob<cr>")
