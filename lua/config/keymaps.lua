@@ -16,3 +16,9 @@ map("n", "<Leader>of", "<CMD>ClangdSwitchSourceHeader<CR>")
 
 map("n", "<Leader>*", "<CMD>FzfLua grep_cword<CR>")
 map("n", "<Leader>/", "<CMD>FzfLua live_grep_glob<cr>")
+
+-- I am used to lunar vim key bindings and also
+-- I probably do not need the lazy view as often
+vim.keymap.del("n", "<Leader>l")
+map("n", "<Leader>ll", "<CMD>Lazy<CR>")
+map("n", "<Leader>lf", "cf", { desc = "Format by calling cf" })

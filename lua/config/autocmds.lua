@@ -9,8 +9,20 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup("no_auto_fmt"),
   pattern = {
     "sh",
+    "cpp", -- I will manually format as needed
+    "cmake", -- Should not be formatted directly
   },
   callback = function(_)
     vim.b.autoformat = false
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("space_sw_4"),
+  pattern = {
+    "cpp",
+  },
+  callback = function(_)
+    vim.bo.sw = 4
   end,
 })
