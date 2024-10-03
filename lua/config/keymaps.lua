@@ -21,6 +21,8 @@ map("n", "<Leader>/", "<CMD>FzfLua live_grep_glob<cr>")
 -- I probably do not need the lazy view as often
 vim.keymap.del("n", "<Leader>l")
 map("n", "<Leader>ll", "<CMD>Lazy<CR>")
-map("n", "<Leader>lf", function()
+map("n", "<Leader>lx", "<CMD>LazyE(X)tras<CR>")
+
+map({ "n", "v" }, "<Leader>lf", function()
   require("conform").format()
-end, { desc = "Format by calling cf" })
+end, { desc = "Format code" })
