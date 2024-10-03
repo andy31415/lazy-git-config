@@ -18,6 +18,7 @@ return {
     end,
     dependencies = {
       { "stevearc/overseer.nvim", opts = {} },
+      { "nvim-telescope/telescope.nvim" },
     },
   },
 }
