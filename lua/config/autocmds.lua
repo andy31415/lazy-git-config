@@ -26,3 +26,24 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.sw = 4
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("pyfiles"),
+  pattern = {
+    "python",
+  },
+  callback = function(_)
+    require("lspconfig").pylsp.setup({
+      settings = {
+        pylsp = {
+          plugins = {
+            pycodestyle = {
+              -- ignore = { "W391" },
+              maxLineLength = 120,
+            },
+          },
+        },
+      },
+    })
+  end,
+})
