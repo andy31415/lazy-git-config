@@ -52,6 +52,10 @@ return {
           fd_opts = [[--color=never --type f --prune --hidden -E .git -E __pycache__ -E out ]],
           git_icons = false,
         },
+        grep = {
+          rg_opts = "--hidden --no-ignore --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+          git_icons = false,
+        },
       })
     end,
   },
