@@ -41,10 +41,15 @@ return {
       local actions = require("fzf-lua.actions")
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({
+        "skim", -- skim seems nice, even though unclear if easiest. Requires sk
         keymap = {
           fzf = {
             ["ctrl-q"] = "select-all+accept",
           },
+        },
+        files = {
+          -- Optimized for CHIP
+          fd_opts = [[--color=never --type f --prune --hidden -E .git -E third_party ]],
         },
       })
     end,
