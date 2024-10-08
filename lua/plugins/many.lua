@@ -50,6 +50,7 @@ return {
         files = {
           -- Optimized for CHIP
           fd_opts = [[--color=never --type f --prune --hidden -E .git -E third_party ]],
+          git_icons = false,
         },
       })
     end,
