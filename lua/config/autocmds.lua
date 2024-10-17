@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "cpp", -- I will manually format as needed
     "cmake", -- Should not be formatted directly
     "yaml", -- these are not standardized in chip
+    "python", -- this messes it up considerably
   },
   callback = function(_)
     vim.b.autoformat = false

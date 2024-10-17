@@ -53,7 +53,7 @@ return {
           git_icons = false,
         },
         grep = {
-          rg_opts = "--hidden --no-ignore --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+          rg_opts = "--hidden --no-ignore --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g '!out' -g '!.git' -e",
           git_icons = false,
         },
       })
