@@ -66,7 +66,8 @@ return {
     end,
     dependencies = {
       -- NOTE: additional parser
-      { "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
+      -- { "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
+      { "willcassella/nvim-gn", build = ":TSUpdate nu" },
     },
   },
 }
