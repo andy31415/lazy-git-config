@@ -42,20 +42,23 @@ return {
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({
         -- NOTE: requires a RECENT sk version otherwise we get `index` not being available for tiebreak
-        "skim", -- skim seems nice, even though unclear if easiest. Requires sk
+        -- "skim", -- skim seems nice, even though unclear if easiest. Requires sk
+        -- Currently I get "unsupported action - nil" when using skim, so I disabled it
         keymap = {
           fzf = {
             ["ctrl-q"] = "select-all+accept",
           },
         },
+        defaults = {
+          git_icons = false, -- faster
+          -- file_icons = false,
+        },
         files = {
           -- Optimized for CHIP
           fd_opts = [[--color=never --type f --prune --hidden -E .git -E __pycache__ -E out -E third_party ]],
-          git_icons = false,
         },
         grep = {
           rg_opts = "--hidden --no-ignore --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g '!out' -g '!.git' -e",
-          git_icons = false,
         },
       })
     end,
