@@ -42,8 +42,8 @@ return {
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({
         -- NOTE: requires a RECENT sk version otherwise we get `index` not being available for tiebreak
-        -- "skim", -- skim seems nice, even though unclear if easiest. Requires sk
         -- Currently I get "unsupported action - nil" when using skim, so I disabled it
+        "skim", -- skim seems nice, even though unclear if easiest. Requires sk
         keymap = {
           fzf = {
             ["ctrl-q"] = "select-all+accept",
