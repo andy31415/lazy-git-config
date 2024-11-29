@@ -46,9 +46,12 @@ return {
         "skim", -- skim seems nice, even though unclear if easiest. Requires sk
         keymap = {
           fzf = {
-            ["ctrl-q"] = "select-all+accept",
+            true, -- inherit (e.g. alt+a selects all)
+            -- For fzf "select-all+accept is sufficient, but for skim we seem to need enter"
+            ["ctrl-q"] = "select-all+accept(enter)",
           },
         },
+        -- "telescope", -- skim seems nice, even though unclear if easiest. Requires sk
         defaults = {
           git_icons = false, -- faster
           -- file_icons = false,
