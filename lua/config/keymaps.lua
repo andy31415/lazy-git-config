@@ -26,3 +26,9 @@ map("n", "<Leader>lx", "<CMD>LazyExtras<CR>")
 map({ "n", "v" }, "<Leader>lf", function()
   require("conform").format()
 end, { desc = "Format code" })
+
+map({ "n" }, "<Leader>ci", function()
+  -- TODO: no idea how to write this
+  local cmp = require("blink.cmp.config.keymap")
+  print(vim.inspect(cmp))
+end, { desc = "Ollama complete" })
