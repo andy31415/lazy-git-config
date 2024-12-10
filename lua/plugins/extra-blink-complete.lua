@@ -55,7 +55,7 @@ return {
       sources = {
         completion = {
           enabled_providers = {
-            "ripgrep",
+            -- "ripgrep", -- may use a LOT of ram and crash vim
             -- "cmp_ai" -- slow and not reliable TBH
           },
         },
@@ -66,7 +66,7 @@ return {
             opts = {
               prefix_min_len = 3,
               context_size = 5,
-              max_filesize = "100K",
+              max_filesize = "10K",
             },
           },
           cmp_ai = {
