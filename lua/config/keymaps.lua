@@ -18,93 +18,95 @@ map("n", "<Leader>*", "<CMD>FzfLua grep_cword<CR>")
 
 -- Taken from `Advanced telescope.nvim` Examples, search plugin
 -- TODO: move this somewhere else
-local pickers = require("telescope.pickers")
-local finders = require("telescope.finders")
-local make_entry = require("telescope.make_entry")
-local conf = require("telescope.config").values
-local live_multigrep = function(opts)
-  opts = opts or {}
-  opts.cwd = opts.cwd or vim.uv.cwd()
+-- local pickers = require("telescope.pickers")
+-- local finders = require("telescope.finders")
+-- local make_entry = require("telescope.make_entry")
+-- local conf = require("telescope.config").values
+-- local live_multigrep = function(opts)
+--   opts = opts or {}
+--   opts.cwd = opts.cwd or vim.uv.cwd()
+--
+--   local finder = finders.new_async_job({
+--     command_generator = function(prompt)
+--       if not prompt or prompt == "" then
+--         return nil
+--       end
+--
+--       local pieces = vim.split(prompt, "  ")
+--       local args = {
+--         "rg",
+--         -- options required by ripgrep
+--         "--color=never",
+--         "--no-heading",
+--         "--with-filename",
+--         "--line-number",
+--         "--column",
+--         "--smart-case",
+--         -- options for my own search
+--         "--hidden",
+--         "--no-ignore",
+--         "--max-columns=4096",
+--         "-g",
+--         "!out",
+--         "-g",
+--         "!.git",
+--       }
+--
+--       if pieces[1] then
+--         table.insert(args, "-e")
+--         table.insert(args, pieces[1])
+--       end
+--
+--       if pieces[2] then
+--         table.insert(args, "-g")
+--         table.insert(args, pieces[2])
+--       end
+--
+--       return args
+--     end,
+--     entry_marker = make_entry.gen_from_vimgrep(opts),
+--     cwd = opts.cwd,
+--   })
+--
+--   pickers
+--     .new(opts, {
+--       debounce = 100,
+--       prompt_title = "MultiGrep (double space for path glob)",
+--       finder = finder,
+--       previewer = conf.grep_previewer(opts),
+--       sorter = require("telescope.sorters").highlighter_only(opts),
+--     })
+--     :find()
+-- end
 
-  local finder = finders.new_async_job({
-    command_generator = function(prompt)
-      if not prompt or prompt == "" then
-        return nil
-      end
+-- FZFLua seems better overall
+-- use `--` to add glob grepping
+map("n", "<Leader>/", "<CMD>FzfLua live_grep_glob<cr>")
 
-      local pieces = vim.split(prompt, "  ")
-      local args = {
-        "rg",
-        -- options required by ripgrep
-        "--color=never",
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
-        "--column",
-        "--smart-case",
-        -- options for my own search
-        "--hidden",
-        "--no-ignore",
-        "--max-columns=4096",
-        "-g",
-        "!out",
-        "-g",
-        "!.git",
-      }
-
-      if pieces[1] then
-        table.insert(args, "-e")
-        table.insert(args, pieces[1])
-      end
-
-      if pieces[2] then
-        table.insert(args, "-g")
-        table.insert(args, pieces[2])
-      end
-
-      return args
-    end,
-    entry_marker = make_entry.gen_from_vimgrep(opts),
-    cwd = opts.cwd,
-  })
-
-  pickers
-    .new(opts, {
-      debounce = 100,
-      prompt_title = "MultiGrep (double space for path glob)",
-      finder = finder,
-      previewer = conf.grep_previewer(opts),
-      sorter = require("telescope.sorters").highlighter_only(opts),
-    })
-    :find()
-end
-
--- map("n", "<Leader>/", "<CMD>FzfLua live_grep_glob<cr>")
-map("n", "<Leader>/", function()
-  --live_multigrep()
-
-  -- Seems quite good as is because CTRL+SPACE does grep inside
-  require("telescope.builtin").live_grep({
-    vimgrep_arguments = {
-      "rg",
-      -- options required by ripgrep
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-      -- options for my own search
-      "--hidden",
-      "--no-ignore",
-      "--max-columns=4096",
-      "-g",
-      "!out",
-      "-g",
-      "!.git",
-    },
-  })
-end, { desc = "RipGrep" })
+-- map("n", "<Leader>/", function()
+--   --live_multigrep()
+--   -- Seems quite good as is because CTRL+SPACE does grep inside
+--   require("telescope.builtin").live_grep({
+--     vimgrep_arguments = {
+--       "rg",
+--       -- options required by ripgrep
+--       "--color=never",
+--       "--no-heading",
+--       "--with-filename",
+--       "--line-number",
+--       "--column",
+--       "--smart-case",
+--       -- options for my own search
+--       "--hidden",
+--       "--no-ignore",
+--       "--max-columns=4096",
+--       "-g",
+--       "!out",
+--       "-g",
+--       "!.git",
+--     },
+--   })
+-- end, { desc = "RipGrep" })
 
 -- I am used to lunar vim key bindings and also
 -- I probably do not need the lazy view as often
