@@ -74,14 +74,36 @@ local live_multigrep = function(opts)
       prompt_title = "MultiGrep (double space for path glob)",
       finder = finder,
       previewer = conf.grep_previewer(opts),
-      sorter = require("telescope.sorters").empty(),
+      sorter = require("telescope.sorters").highlighter_only(opts),
     })
     :find()
 end
 
 -- map("n", "<Leader>/", "<CMD>FzfLua live_grep_glob<cr>")
 map("n", "<Leader>/", function()
-  live_multigrep()
+  --live_multigrep()
+
+  -- Seems quite good as is because CTRL+SPACE does grep inside
+  require("telescope.builtin").live_grep({
+    vimgrep_arguments = {
+      "rg",
+      -- options required by ripgrep
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      -- options for my own search
+      "--hidden",
+      "--no-ignore",
+      "--max-columns=4096",
+      "-g",
+      "!out",
+      "-g",
+      "!.git",
+    },
+  })
 end, { desc = "RipGrep" })
 
 -- I am used to lunar vim key bindings and also
