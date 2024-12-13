@@ -16,6 +16,14 @@ return {
         true, -- inherit (e.g. alt+a selects all)
         -- For fzf "select-all+accept is sufficient, but for skim we seem to need enter"
         ["ctrl-q"] = "select-all+accept(enter)",
+        -- These do not seem to work
+        -- ["ctrl-h"] = "toggle-hidden", => this is backspace
+        -- ["ctrl-i"] = "toggle-ignore", => this is actually "select"
+      },
+    },
+    previewers = {
+      bat = {
+        theme = "Monokai Extended",
       },
     },
     -- "telescope", -- skim seems nice, even though unclear if easiest. Requires sk
