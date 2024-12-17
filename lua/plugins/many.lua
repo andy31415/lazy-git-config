@@ -35,14 +35,9 @@ return {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      -- setup treesitter with config
-    end,
+    "willcassella/nvim-gn",
     dependencies = {
-      -- NOTE: additional parser
-      -- { "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
-      { "willcassella/nvim-gn", build = ":TSUpdate nu" },
+      "nvim-treesitter/nvim-treesitter",
     },
   },
 }
