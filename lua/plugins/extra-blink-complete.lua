@@ -51,38 +51,38 @@ return {
   --     })
   --   end,
   -- },
-  {
-    "saghen/blink.cmp",
-    dependencies = {
-      { "saghen/blink.compat" },
-      { "mikavilpas/blink-ripgrep.nvim" },
-      -- { "tzachar/cmp-ai", dependencies = { "nvim-lua/plenary.nvim" } },
-    },
-    opts = {
-      sources = {
-        completion = {
-          enabled_providers = {
-            -- "ripgrep", -- may use a LOT of ram and crash vim
-            -- "cmp_ai" -- slow and not reliable TBH
-          },
-        },
-        providers = {
-          ripgrep = {
-            module = "blink-ripgrep",
-            name = "Ripgrep",
-            opts = {
-              prefix_min_len = 3,
-              context_size = 5,
-              max_filesize = "10K",
-            },
-          },
-          cmp_ai = {
-            name = "cmp_ai", -- IMPORTANT: use the same name as you would for nvim-cmp
-            module = "blink.compat.source",
-            opts = {},
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "saghen/blink.cmp",
+  --   dependencies = {
+  --     { "saghen/blink.compat" },
+  --     { "mikavilpas/blink-ripgrep.nvim" },
+  --     -- { "tzachar/cmp-ai", dependencies = { "nvim-lua/plenary.nvim" } },
+  --   },
+  --   opts = {
+  --     sources = {
+  --       completion = {
+  --         enabled_providers = {
+  --           -- "ripgrep", -- may use a LOT of ram and crash vim
+  --           -- "cmp_ai" -- slow and not reliable TBH
+  --         },
+  --       },
+  --       providers = {
+  --         ripgrep = {
+  --           module = "blink-ripgrep",
+  --           name = "Ripgrep",
+  --           opts = {
+  --             prefix_min_len = 3,
+  --             context_size = 5,
+  --             max_filesize = "10K",
+  --           },
+  --         },
+  --         cmp_ai = {
+  --           name = "cmp_ai", -- IMPORTANT: use the same name as you would for nvim-cmp
+  --           module = "blink.compat.source",
+  --           opts = {},
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }
